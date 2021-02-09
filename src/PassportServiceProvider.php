@@ -217,7 +217,9 @@ class PassportServiceProvider extends ServiceProvider
             $this->app->make(Bridge\AccessTokenRepository::class),
             $this->app->make(Bridge\ScopeRepository::class),
             $this->makeCryptKey('private'),
-            app('encrypter')->getKey()
+            app('encrypter')->getKey(),
+            null,
+            $this->app->make(Config::class)->get('passport.revoke_refresh_tokens')
         );
     }
 
