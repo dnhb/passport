@@ -74,5 +74,5 @@ return [
     |
     */
 
-    'revoke_refresh_tokens' => false,
+    'revoke_refresh_tokens' => true,
 ];
