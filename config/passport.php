@@ -74,5 +74,5 @@ return [
     |
     */
 
-    'revoke_refresh_tokens' => true,
+    'revoke_refresh_tokens' => env('PASSPORT_REVOKE_REFRESH_TOKENS', true),
 ];
