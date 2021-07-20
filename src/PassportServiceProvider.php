@@ -137,7 +137,7 @@ class PassportServiceProvider extends ServiceProvider
                     );
                 }
 
-                $server->revokeRefreshTokens(Passport::revokeRefreshTokens());
+                $server->setRevokeRefreshTokens(Passport::revokeRefreshTokens());
             });
         });
     }
