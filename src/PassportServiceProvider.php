@@ -136,6 +136,8 @@ class PassportServiceProvider extends ServiceProvider
                         $this->makeImplicitGrant(), Passport::tokensExpireIn()
                     );
                 }
+
+                $server->revokeRefreshTokens(Passport::revokeRefreshTokens());
             });
         });
     }
