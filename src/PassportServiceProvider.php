@@ -152,6 +152,7 @@ class PassportServiceProvider extends ServiceProvider
         $this->app->singleton(AuthorizationServer::class, function () {
             return tap($this->makeAuthorizationServer(), function ($server) {
                 $server->setDefaultScope(Passport::$defaultScope);
+                $server->revokeRefreshTokens(Passport::revokeRefreshTokens());
 
                 $server->enableGrantType(
                     $this->makeAuthCodeGrant(), Passport::tokensExpireIn()
@@ -180,8 +181,6 @@ class PassportServiceProvider extends ServiceProvider
                         $this->makeImplicitGrant(), Passport::tokensExpireIn()
                     );
                 }
-
-                $server->revokeRefreshTokens(Passport::revokeRefreshTokens());
             });
         });
     }
